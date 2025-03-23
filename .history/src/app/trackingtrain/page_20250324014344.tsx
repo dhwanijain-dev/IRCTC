@@ -292,7 +292,7 @@ const mockTrainData: TrainData = {
                 scheduledDeparture: "06:27",
                 actualDeparture: "06:42",
             },
-            // { name: "New Delhi", code: "NDLS", status: "upcoming", scheduledArrival: "08:35", actualArrival: "08:50" },
+            { name: "New Delhi", code: "NDLS", status: "upcoming", scheduledArrival: "08:35", actualArrival: "08:50" },
         ],
         progress: 65, // percentage of journey completed
         coordinates: [

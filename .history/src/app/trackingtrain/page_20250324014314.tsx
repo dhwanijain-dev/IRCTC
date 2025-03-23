@@ -112,7 +112,7 @@ const mockTrainData: TrainData = {
                 scheduledDeparture: "01:35",
                 actualDeparture: "01:35",
             },
-            // { name: "New Delhi", code: "NDLS", status: "upcoming", scheduledArrival: "04:55", actualArrival: "04:55" },
+            { name: "New Delhi", code: "NDLS", status: "upcoming", scheduledArrival: "04:55", actualArrival: "04:55" },
         ],
         progress: 85, // percentage of journey completed
         coordinates: [
@@ -199,7 +199,7 @@ const mockTrainData: TrainData = {
                 scheduledDeparture: "04:27",
                 actualDeparture: "04:52",
             },
-            // { name: "Howrah Junction", code: "HWH", status: "upcoming", scheduledArrival: "06:55", actualArrival: "07:20" },
+            { name: "Howrah Junction", code: "HWH", status: "upcoming", scheduledArrival: "06:55", actualArrival: "07:20" },
         ],
         progress: 55, // percentage of journey completed
         coordinates: [
@@ -292,7 +292,7 @@ const mockTrainData: TrainData = {
                 scheduledDeparture: "06:27",
                 actualDeparture: "06:42",
             },
-            // { name: "New Delhi", code: "NDLS", status: "upcoming", scheduledArrival: "08:35", actualArrival: "08:50" },
+            { name: "New Delhi", code: "NDLS", status: "upcoming", scheduledArrival: "08:35", actualArrival: "08:50" },
         ],
         progress: 65, // percentage of journey completed
         coordinates: [

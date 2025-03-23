@@ -58,6 +58,7 @@ export default function TrainSelection({ onSelectTrain }: TrainSelectionProps) {
             rotation={[0, 0, 0]}
             polar={[-Math.PI / 4, Math.PI / 4]}
             azimuth={[-Math.PI / 4, Math.PI / 4]}
+            config={{ mass: 1, tension: 500, friction: 26 }}
             snap={false} // Removed mass property
           >
             <Train modelPath={currentTrain.model} />

@@ -1,38 +1,3 @@
-"use client"
-
-import { useState } from "react"
-import TrainMap from "@/components/train-map"
-import TrainStatusPanel from "@/components/train-status-panel"
-import TrainSearch from "@/components/train-search"
-import Link from "next/link"
-import { Home, Undo } from "lucide-react"
-interface Train {
-    name: string;
-    number: string;
-    status: string;
-    currentStation: string;
-    nextStation: string;
-    delay: number;
-    route: {
-        name: string;
-        code: string;
-        status: string;
-        scheduledArrival?: string;
-        actualArrival?: string;
-        scheduledDeparture: string;
-        actualDeparture: string;
-    }[];
-    progress: number;
-    coordinates: {
-        lat: number;
-        lng: number;
-    }[];
-}
-
-interface TrainData {
-    [key: string]: Train;
-}
-// Mock train data - in a real app, this would come from an API
 const mockTrainData: TrainData = {
     "12301": {
         name: "Howrah-New Delhi Rajdhani Express",
@@ -112,7 +77,7 @@ const mockTrainData: TrainData = {
                 scheduledDeparture: "01:35",
                 actualDeparture: "01:35",
             },
-            // { name: "New Delhi", code: "NDLS", status: "upcoming", scheduledArrival: "04:55", actualArrival: "04:55" },
+            { name: "New Delhi", code: "NDLS", status: "upcoming", scheduledArrival: "04:55", actualArrival: "04:55" },
         ],
         progress: 85, // percentage of journey completed
         coordinates: [
@@ -199,7 +164,7 @@ const mockTrainData: TrainData = {
                 scheduledDeparture: "04:27",
                 actualDeparture: "04:52",
             },
-            // { name: "Howrah Junction", code: "HWH", status: "upcoming", scheduledArrival: "06:55", actualArrival: "07:20" },
+            { name: "Howrah Junction", code: "HWH", status: "upcoming", scheduledArrival: "06:55", actualArrival: "07:20" },
         ],
         progress: 55, // percentage of journey completed
         coordinates: [
@@ -292,7 +257,7 @@ const mockTrainData: TrainData = {
                 scheduledDeparture: "06:27",
                 actualDeparture: "06:42",
             },
-            // { name: "New Delhi", code: "NDLS", status: "upcoming", scheduledArrival: "08:35", actualArrival: "08:50" },
+            { name: "New Delhi", code: "NDLS", status: "upcoming", scheduledArrival: "08:35", actualArrival: "08:50" },
         ],
         progress: 65, // percentage of journey completed
         coordinates: [
@@ -308,17 +273,18 @@ const mockTrainData: TrainData = {
         ],
     },
 }
+
 export default function TrackYourTrainPage() {
-    const [selectedTrain, setSelectedTrain] = useState<any>(null)
+    const [selectedTrain, setSelectedTrain] = useState<Train | null>(null)
     const [searchQuery, setSearchQuery] = useState<string>("");
 
     const handleTrainSearch = (trainNumber: string | number) => {
         setSearchQuery(String(trainNumber))
-        setSelectedTrain(mockTrainData[trainNumber])
+        setSelectedTrain(mockTrainData[trainNumber as keyof TrainData] || null)
     }
 
     return (
-        <div className="relative w-full  h-screen bg-slate-900">
+        <div className="relative w-full h-screen bg-slate-900">
             {/* 3D Map */}
             <TrainMap selectedTrain={selectedTrain} />
 
@@ -327,13 +293,13 @@ export default function TrackYourTrainPage() {
                 <div className="container mx-auto h-full flex flex-col">
                     {/* Header */}
                     <div className="pt-8 pb-4 pointer-events-auto">
-                        <Link className=" text-white text-sm font-light flex gap-2" href="/"><Home /> Go Home</Link>
-                        <h1 className="text-3xl font-bold text-white">Track Your Train  </h1>
+                        <Link className="text-white text-sm font-light flex gap-2" href="/"><Home /> Go Home</Link>
+                        <h1 className="text-3xl font-bold text-white">Track Your Train</h1>
                         <p className="text-slate-300">Live train movement across India's railway network</p>
                     </div>
 
                     {/* Search Panel */}
-                    <div className="w-full max-w-md pointer-events-auto ">
+                    <div className="w-full max-w-md pointer-events-auto">
                         <TrainSearch onSearch={handleTrainSearch} />
                     </div>
 
@@ -351,4 +317,3 @@ export default function TrackYourTrainPage() {
         </div>
     )
 }
-

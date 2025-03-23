@@ -56,11 +56,7 @@ export default function TrainSelection({ onSelectTrain }: TrainSelectionProps) {
           <PresentationControls
             global
             rotation={[0, 0, 0]}
-            polar={[-Math.PI / 4, Math.PI / 4]}
-            azimuth={[-Math.PI / 4, Math.PI / 4]}
-            snap={false} // Removed mass property
-          >
-            <Train modelPath={currentTrain.model} />
+            polar            <Train modelPath={currentTrain.model} />
           </PresentationControls>
           <Environment preset="city" />
         </Canvas>
