@@ -63,7 +63,7 @@ export default function SmokeEffect({ position }: SmokeEffectProps) {
     });
 
     return (
-        <instancedMesh ref={meshRef} args={[null, null, count]}>
+        <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
             <sphereGeometry args={[5, 16, 16]} />
             <meshStandardMaterial transparent opacity={0.5} color="gray" />
         </instancedMesh>
