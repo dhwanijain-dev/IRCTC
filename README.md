@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, Install The Dependencies
 ```bash
-npm install
+npm install --legacy-peer-deps
 # or
 yarn install
 # or
