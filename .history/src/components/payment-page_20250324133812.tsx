@@ -58,7 +58,7 @@ function CreditCardModel({ isFlipped, cardDetails }: CreditCardModelProps) {
   })
 
   return (
-    <animated.group rotation={rotation}>
+    <animated.hgroup rotation={rotation}>
       {/* Front of card */}
       <group position={[0, 0, 0.01]}>
         <mesh>

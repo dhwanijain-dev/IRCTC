@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Canvas } from "@react-three/fiber"
-import { animated, useSpring } from "@react-spring/three"
+import { useSpring, animated } from "@react-spring/three"
 import { Environment, PresentationControls } from "@react-three/drei"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"

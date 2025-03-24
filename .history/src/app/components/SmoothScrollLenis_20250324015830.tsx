@@ -9,7 +9,7 @@ const SmoothScrollLenis = () => {
             lerp: 0.1, // Controls smoothness
         });
 
-        const raf = (time: DOMHighResTimeStamp) => {
+        const raf = (time) => {
             lenis.raf(time);
             requestAnimationFrame(raf);
         };

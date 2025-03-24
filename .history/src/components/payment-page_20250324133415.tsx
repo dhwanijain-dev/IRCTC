@@ -60,10 +60,7 @@ function CreditCardModel({ isFlipped, cardDetails }: CreditCardModelProps) {
   return (
     <animated.group rotation={rotation}>
       {/* Front of card */}
-      <group position={[0, 0, 0.01]}>
-        <mesh>
-          <planeGeometry args={[3.4, 2.1]} />
-          <meshStandardMaterial color="#1e40af" />
+      <group position={[0,          <meshStandardMaterial color="#1e40af" />
         </mesh>
 
         {/* Card chip */}
@@ -98,7 +95,7 @@ function CreditCardModel({ isFlipped, cardDetails }: CreditCardModelProps) {
           <meshStandardMaterial color="#f5f5f5" />
         </mesh>
       </group>
-    </animated.group>
+    </animated.hgroup>
   )
 }
 

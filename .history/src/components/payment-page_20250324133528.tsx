@@ -93,15 +93,7 @@ function CreditCardModel({ isFlipped, cardDetails }: CreditCardModelProps) {
         </mesh>
 
         {/* CVV strip */}
-        <mesh position={[0, 0, 0.01]}>
-          <planeGeometry args={[2, 0.4]} />
-          <meshStandardMaterial color="#f5f5f5" />
-        </mesh>
-      </group>
-    </animated.group>
-  )
-}
-
+        <mesh position
 export default function PaymentPage({ selectedTrain, selectedSeats, bookingDetails }: PaymentPageProps) {
   const [isFlipped, setIsFlipped] = useState(false)
   const [cardDetails, setCardDetails] = useState<CardDetails>({

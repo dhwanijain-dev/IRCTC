@@ -75,33 +75,7 @@ function CreditCardModel({ isFlipped, cardDetails }: CreditCardModelProps) {
         {/* Card number */}
         <mesh position={[0, 0, 0.01]}>
           <planeGeometry args={[3, 0.3]} />
-          <meshStandardMaterial color="#1e40af" />
-        </mesh>
-      </group>
-
-      {/* Back of card */}
-      <group position={[0, 0, -0.01]} rotation={[0, Math.PI, 0]}>
-        <mesh>
-          <planeGeometry args={[3.4, 2.1]} />
-          <meshStandardMaterial color="#1e3a8a" />
-        </mesh>
-
-        {/* Magnetic stripe */}
-        <mesh position={[0, 0.7, 0.01]}>
-          <planeGeometry args={[3.4, 0.4]} />
-          <meshStandardMaterial color="#27272a" />
-        </mesh>
-
-        {/* CVV strip */}
-        <mesh position={[0, 0, 0.01]}>
-          <planeGeometry args={[2, 0.4]} />
-          <meshStandardMaterial color="#f5f5f5" />
-        </mesh>
-      </group>
-    </animated.group>
-  )
-}
-
+          <meshStandardMaterial color="#1e40af"
 export default function PaymentPage({ selectedTrain, selectedSeats, bookingDetails }: PaymentPageProps) {
   const [isFlipped, setIsFlipped] = useState(false)
   const [cardDetails, setCardDetails] = useState<CardDetails>({

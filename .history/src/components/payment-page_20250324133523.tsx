@@ -53,55 +53,7 @@ interface CreditCardModelProps {
 
 function CreditCardModel({ isFlipped, cardDetails }: CreditCardModelProps) {
   const { rotation } = useSpring({
-    rotation: isFlipped ? [0, Math.PI, 0] : [0, 0, 0],
-    config: { mass: 5, tension: 500, friction: 80 },
-  })
-
-  return (
-    <animated.group rotation={rotation}>
-      {/* Front of card */}
-      <group position={[0, 0, 0.01]}>
-        <mesh>
-          <planeGeometry args={[3.4, 2.1]} />
-          <meshStandardMaterial color="#1e40af" />
-        </mesh>
-
-        {/* Card chip */}
-        <mesh position={[-1, 0.5, 0.01]}>
-          <planeGeometry args={[0.5, 0.5]} />
-          <meshStandardMaterial color="#d4d4d8" />
-        </mesh>
-
-        {/* Card number */}
-        <mesh position={[0, 0, 0.01]}>
-          <planeGeometry args={[3, 0.3]} />
-          <meshStandardMaterial color="#1e40af" />
-        </mesh>
-      </group>
-
-      {/* Back of card */}
-      <group position={[0, 0, -0.01]} rotation={[0, Math.PI, 0]}>
-        <mesh>
-          <planeGeometry args={[3.4, 2.1]} />
-          <meshStandardMaterial color="#1e3a8a" />
-        </mesh>
-
-        {/* Magnetic stripe */}
-        <mesh position={[0, 0.7, 0.01]}>
-          <planeGeometry args={[3.4, 0.4]} />
-          <meshStandardMaterial color="#27272a" />
-        </mesh>
-
-        {/* CVV strip */}
-        <mesh position={[0, 0, 0.01]}>
-          <planeGeometry args={[2, 0.4]} />
-          <meshStandardMaterial color="#f5f5f5" />
-        </mesh>
-      </group>
-    </animated.group>
-  )
-}
-
+    rotation:
 export default function PaymentPage({ selectedTrain, selectedSeats, bookingDetails }: PaymentPageProps) {
   const [isFlipped, setIsFlipped] = useState(false)
   const [cardDetails, setCardDetails] = useState<CardDetails>({

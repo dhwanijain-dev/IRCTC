@@ -98,7 +98,7 @@ function CreditCardModel({ isFlipped, cardDetails }: CreditCardModelProps) {
           <meshStandardMaterial color="#f5f5f5" />
         </mesh>
       </group>
-    </animated.group>
+    </animated.hgroup>
   )
 }
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Canvas } from "@react-three/fiber"
-import { animated, useSpring } from "@react-spring/three"
+import { useSpring, animated } from "@react-spring/three"
 import { Environment, PresentationControls } from "@react-three/drei"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -139,7 +139,8 @@ export default function PaymentPage({ selectedTrain, selectedSeats, bookingDetai
             rotation={[0, 0, 0]}
             polar={[-Math.PI / 4, Math.PI / 4]}
             azimuth={[-Math.PI / 4, Math.PI / 4]}
-            snap={false}
+            config={{ mass: 2, tension: 500 }}
+            snap={{ tension: 1500 }}
           >
             <CreditCardModel isFlipped={isFlipped} cardDetails={cardDetails} />
           </PresentationControls>

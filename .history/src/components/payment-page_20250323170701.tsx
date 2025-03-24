@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Canvas } from "@react-three/fiber"
-import { animated, useSpring } from "@react-spring/three"
+import { useSpring, animated } from "@react-spring/three"
 import { Environment, PresentationControls } from "@react-three/drei"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,47 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CreditCard, Smartphone, Landmark } from "lucide-react"
 
-interface Train {
-  id: number
-  name: string
-  type: string
-  duration: string
-  price: number
-  model: string
-}
-
-interface Seat {
-  id: string
-  price: number
-}
-
-interface BookingDetails {
-  from: string
-  to: string
-  date: string
-  passengers: number
-  class: string
-}
-
-interface PaymentPageProps {
-  selectedTrain: Train | null
-  selectedSeats: Seat[]
-  bookingDetails: BookingDetails
-}
-
-interface CardDetails {
-  number: string
-  name: string
-  expiry: string
-  cvv: string
-}
-
-interface CreditCardModelProps {
-  isFlipped: boolean
-  cardDetails: CardDetails
-}
-
-function CreditCardModel({ isFlipped, cardDetails }: CreditCardModelProps) {
+function CreditCardModel({ isFlipped, cardDetails }) {
   const { rotation } = useSpring({
     rotation: isFlipped ? [0, Math.PI, 0] : [0, 0, 0],
     config: { mass: 5, tension: 500, friction: 80 },
@@ -102,9 +62,9 @@ function CreditCardModel({ isFlipped, cardDetails }: CreditCardModelProps) {
   )
 }
 
-export default function PaymentPage({ selectedTrain, selectedSeats, bookingDetails }: PaymentPageProps) {
+export default function PaymentPage({ selectedTrain, selectedSeats, bookingDetails }) {
   const [isFlipped, setIsFlipped] = useState(false)
-  const [cardDetails, setCardDetails] = useState<CardDetails>({
+  const [cardDetails, setCardDetails] = useState({
     number: "",
     name: "",
     expiry: "",
@@ -139,7 +99,8 @@ export default function PaymentPage({ selectedTrain, selectedSeats, bookingDetai
             rotation={[0, 0, 0]}
             polar={[-Math.PI / 4, Math.PI / 4]}
             azimuth={[-Math.PI / 4, Math.PI / 4]}
-            snap={false}
+            config={{ mass: 2, tension: 500 }}
+            snap={{ mass: 4, tension: 1500 }}
           >
             <CreditCardModel isFlipped={isFlipped} cardDetails={cardDetails} />
           </PresentationControls>
@@ -241,7 +202,7 @@ export default function PaymentPage({ selectedTrain, selectedSeats, bookingDetai
             <div className="space-y-2">
               <div className="flex justify-between">
                 <span>Train:</span>
-                <span>{selectedTrain?.name}</span>
+                <span>{selectedTrain.name}</span>
               </div>
               <div className="flex justify-between">
                 <span>Journey:</span>
@@ -271,3 +232,4 @@ export default function PaymentPage({ selectedTrain, selectedSeats, bookingDetai
     </div>
   )
 }
+
